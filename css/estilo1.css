@@ -86,6 +86,49 @@
     }
 }
 
+
+/* ------------------------------ PAGINA 2 (inicio.html) ------------------------------ */
+
+.boton-musica{
+    position: fixed;   /* Se queda pegado a la pantalla */
+    bottom: 20px;      /* Margen desde abajo */
+    right: 20px;       /* Margen desde la derecha */
+    z-index: 9999;     /* Para que esté siempre encima de todo */
+}
+
+.boton-play-1{
+    width: 60px;
+    height: 60px;
+    background-color: #206c94; /* Botón blanco */
+    color: #ffffff; 
+    border-radius: 50%;        /* Lo hace perfectamente redondo */
+    border: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra elegante */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;   /* Tamaño del icono */
+    transition: transform 0.2s ease;
+    outline: none;
+}
+
+.boton-play-1:active{
+    transform: scale(0.95); /* Efecto de "presionar" */
+}
+
+.animacion-reproduccion {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+
+
 /*{
 
 }*/

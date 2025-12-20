@@ -6,66 +6,31 @@
     <title>XV MELLIS</title>
 
     <!-- ICONO PESTAÑA SITIO -->
-    <link rel="icon" type="image/png" href="img/favicon.png">
-    <link rel="apple-touch-icon" href="img/favicon.png">
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+    <link rel="apple-touch-icon" href="../img/favicon.png">
     
     <!-- LINKEO FUENTES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- LINKEO ICONOS  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- LINKEO CSS  -->
-    <link rel="stylesheet" href="css/estilo1.css">
+    <link rel="stylesheet" href="../css/estilo1.css">
 </head>
 <body>
 
-    <audio id="musica" loop>
-        <source src="img/mi_cancion.mp3" type="audio/mpeg">
+
+    <!-- BOTON FLOTANTE AUDIO  -->
+    <audio id="musica" loop autoplay>
+        <source src="../audio/fine-line.mp3" type="audio/mpeg">
     </audio>
-    <div class="music-btn-container">
-        <button id="btn-play" class="music-btn"><i class="fas fa-play"></i></button>
-    </div>
-
-    <header class="hero">
-        <div class="hero-content">
-            <h1 class="titulo-principal">MIS XV</h1>
-            <h2 class="nombres">Mellis</h2>
-            <i class="fas fa-chevron-down flecha-bajar"></i>
-        </div>
-    </header>
-
-    <section id="countdown">
-        <h3>Falta muy poco</h3>
-        <div id="reloj" class="reloj-container">
-            <div class="caja-tiempo"><span id="dias">00</span><small>Días</small></div>:
-            <div class="caja-tiempo"><span id="horas">00</span><small>Hs</small></div>:
-            <div class="caja-tiempo"><span id="minutos">00</span><small>Min</small></div>:
-            <div class="caja-tiempo"><span id="segundos">00</span><small>Seg</small></div>
-        </div>
-    </section>
-
-    <section>
-        <h2>La Fiesta</h2>
-        <p class="fecha-texto">Sábado 22 de Noviembre - 21:00 hs</p>
-        <p>Salón "El Gran Evento"</p>
-        <div class="botones-container">
-            <button class="btn"><i class="fas fa-calendar-alt"></i> Agendar</button>
-            <button class="btn btn-outline"><i class="fas fa-map-marker-alt"></i> Cómo llegar</button>
-        </div>
-    </section>
-
-    <section>
-        <h2>Momentos</h2>
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="img/foto1.jpg" alt="Foto 1"></div>
-                <div class="swiper-slide"><img src="img/foto2.jpg" alt="Foto 2"></div>
-                <div class="swiper-slide"><img src="img/foto3.jpg" alt="Foto 3"></div>
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
+    <section class="boton-musica">
+        <button id="boton-play" class="boton-play-1"><i class="fas fa-play"></i></button>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>
