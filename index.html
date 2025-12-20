@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,18 +13,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- LINKEO ICONOS  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <!-- LINKEO CSS  -->
     <link rel="stylesheet" href="css/estilo1.css">
 </head>
-<body id="primera-p">
-    <section id="seccion-primera-pagina">
-        <h1>XV MELLIS</h1>
-        <p>Queremos que seas parte de este momento especial para nosotras</p>
-        
-        <article>
-            <a href="paginas/inicio.html"><button id="boton-ingresar">Ingresar</button></a>
+<body>
+   <!-------------------------------------------------------------- PORTADA  -------------------------------------------------------------->
+   <section id="primera-p">
+        <article id="seccion-primera-pagina">
+            <h1>XV MELLIS</h1>
+            <p>Queremos que seas parte de este momento especial para nosotras</p>
             
+            <button id="boton-ingresar">Ingresar</button>
         </article>
-    </section>
+   </section>
+
+   <!-------------------------------------------------------------- INICIO (empieza oculto)  -------------------------------------------------------------->
+    <audio id="musica" loop>
+        <source src="audio/fine-line.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="contenedor-musica-flotante" style="display: none;">
+        <button id="boton-play-flotante" class="estilo-boton-float">
+            <i class="fas fa-pause"></i>
+        </button>
+    </div>
+
+    <main id="contenido-principal" style="display: none;">
+        
+    </main>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -12,7 +12,7 @@
 
 }
 
-/* ------------------------------ PAGINA 1 (index.html) ------------------------------ */
+/* ------------------------------ PORTADA ------------------------------ */
 #primera-p{
     display: flex;
     justify-content: center;
@@ -86,47 +86,52 @@
     }
 }
 
+/* --Clase para desvanecer la portada (#primera-p) y dejar el contenido de la pagina principal--*/
+.desvanecer-portada {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease, visibility 1s ease;
+    position: absolute; /* Para que deje de ocupar espacio al irse */
+    width: 100%;
+    z-index: 10;
+}
+/* ---------------------------------------------------------------------------------------------*/
 
-/* ------------------------------ PAGINA 2 (inicio.html) ------------------------------ */
+/*----------------------------- PAGINA PRINCIPAL  ------------------------------*/
 
-.boton-musica{
-    position: fixed;   /* Se queda pegado a la pantalla */
-    bottom: 20px;      /* Margen desde abajo */
-    right: 20px;       /* Margen desde la derecha */
-    z-index: 9999;     /* Para que esté siempre encima de todo */
+/* Estilos para el botón de música flotante (Redondo) */
+#contenedor-musica-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
 }
 
-.boton-play-1{
-    width: 60px;
-    height: 60px;
-    background-color: #206c94; /* Botón blanco */
-    color: #ffffff; 
-    border-radius: 50%;        /* Lo hace perfectamente redondo */
+.estilo-boton-float {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #206c94; /* Usé tu mismo azul */
+    color: white;
     border: none;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra elegante */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    font-size: 20px;
     cursor: pointer;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 24px;   /* Tamaño del icono */
-    transition: transform 0.2s ease;
-    outline: none;
+    align-items: center;
 }
 
-.boton-play-1:active{
-    transform: scale(0.95); /* Efecto de "presionar" */
-}
-
+/* Animación de ondas para el botón flotante */
 .animacion-reproduccion {
-    animation: pulse 2s infinite;
+    animation: pulso 2s infinite;
 }
 
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
-    70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+@keyframes pulso {
+    0% { box-shadow: 0 0 0 0 rgba(32, 108, 148, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(32, 108, 148, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(32, 108, 148, 0); }
 }
-
 
 
 /*{

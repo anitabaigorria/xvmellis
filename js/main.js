@@ -1,45 +1,45 @@
-// --- LÓGICA DEL REPRODUCTOR DE MÚSICA ---
+// LOGICA DEL BOTON FLOTANTE DE MUSICA
+const portada = document.getElementById('primera-p'); 
+const btnIngresar = document.getElementById('boton-ingresar'); 
+const contenidoPrincipal = document.getElementById('contenido-principal'); 
+const contenedorMusica = document.getElementById('contenedor-musica-flotante'); 
 
+// Audio
 const audio = document.getElementById('musica');
-const botonPlay = document.getElementById('boton-play');
-const icon = botonPlay.querySelector('i');
+const btnFloat = document.getElementById('boton-play-flotante');
+const icono = btnFloat.querySelector('i');
 
-// 1. CONTROL DEL CLIC (Solo le dice al audio qué hacer)
-botonPlay.addEventListener('click', () => {
+// --- EVENTO: AL HACER CLIC EN "INGRESAR" ---
+btnIngresar.addEventListener('click', () => {
+    // 1. Reproducir música (Aprovechamos el clic)
+    audio.play();
+
+    // 2. Desvanecer tu portada
+    portada.classList.add('desvanecer-portada');
+
+    // 3. Mostrar el contenido principal y el botón de música
+    // Esperamos un poquito (0.5s) para que sea suave
+    setTimeout(() => {
+        portada.style.display = 'none'; // La quitamos del todo
+        contenidoPrincipal.style.display = 'block'; // Mostramos la invitación
+        contenedorMusica.style.display = 'block'; // Mostramos el botón flotante
+    }, 800);
+    
+    // 4. Activar animación del botón flotante
+    btnFloat.classList.add('animacion-reproduccion');
+});
+
+// --- CONTROL DEL BOTÓN FLOTANTE ---
+btnFloat.addEventListener('click', () => {
     if (audio.paused) {
         audio.play();
+        icono.classList.remove('fa-play');
+        icono.classList.add('fa-pause');
+        btnFloat.classList.add('animacion-reproduccion');
     } else {
         audio.pause();
-    }
-});
-
-// 2. SINCRONIZACIÓN VISUAL (Escucha al audio y actualiza el botón)
-// Esto funciona si usas Autoplay, si das clic, o si se detiene sola.
-
-// Cuando el audio empieza a sonar (Event: 'play')
-audio.addEventListener('play', () => {
-    icon.classList.remove('fa-play');
-    icon.classList.add('fa-pause');
-    botonPlay.classList.add('animacion-reproduccion');
-});
-
-// Cuando el audio se detiene (Event: 'pause')
-audio.addEventListener('pause', () => {
-    icon.classList.remove('fa-pause');
-    icon.classList.add('fa-play');
-    botonPlay.classList.remove('animacion-reproduccion');
-});
-
-// 3. INTENTO DE AUTOPLAY (Opcional pero recomendado)
-// Muchos navegadores bloquean el autoplay HTML. Esto intenta forzarlo y gestiona el error.
-document.addEventListener("DOMContentLoaded", () => {
-    const playPromise = audio.play();
-    
-    if (playPromise !== undefined) {
-        playPromise.catch(error => {
-            // Si entras aquí, es porque el navegador bloqueó el autoplay (muy común).
-            // No hacemos nada, dejamos el botón de Play listo para que el usuario toque.
-            console.log("Autoplay bloqueado. Esperando interacción del usuario.");
-        });
+        icono.classList.remove('fa-pause');
+        icono.classList.add('fa-play');
+        btnFloat.classList.remove('animacion-reproduccion');
     }
 });
