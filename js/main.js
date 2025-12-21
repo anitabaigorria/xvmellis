@@ -43,3 +43,64 @@ btnFloat.addEventListener('click', () => {
         btnFloat.classList.remove('animacion-reproduccion');
     }
 });
+
+// LOGICA DE LA CUENTA REGRESIVA 
+
+// Año, Mes (0-11), Día, Hora, Minutos, Segundos
+const fechaEvento = new Date(2026, 2, 20, 0, 1, 0).getTime(); 
+
+// 2. Referencias al DOM
+const elDias = document.getElementById('dias');
+const elHoras = document.getElementById('horas');
+const elMinutos = document.getElementById('minutos');
+const elSegundos = document.getElementById('segundos');
+const contenedorLiDias = document.getElementById('li-dias'); 
+const mensajeContador = document.getElementById('mensaje-contador'); 
+
+const actualizarContador = setInterval(() => {
+    const ahora = new Date().getTime();
+    const distancia = fechaEvento - ahora;
+
+    // Cálculos matemáticos
+    const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+    // --- CASO 1: YA PASÓ EL EVENTO ---
+    if (distancia < 0) {
+        clearInterval(actualizarContador); // Detenemos el intervalo
+        
+        // Dejamos todo en cero fijo
+        elDias.innerText = "00";
+        elHoras.innerText = "00";
+        elMinutos.innerText = "00";
+        elSegundos.innerText = "00";
+        
+        // Si quieres que el mensaje de "Es hoy" desaparezca cuando termine:
+        mensajeContador.classList.remove('visible');
+
+        return; 
+    }
+
+    // --- CASO 2: ES HOY (Menos de 1 día) ---
+    if (dias === 0) {
+        // Ocultamos el contador de días
+        contenedorLiDias.style.display = 'none';
+        
+        // Inyectamos HTML: Solo el SPAN tiene la clase de animación
+        mensajeContador.innerHTML = '<span class="texto-latido">¡ES HOY!</span> Faltan solo:';
+        mensajeContador.classList.add('visible');
+    } else {
+        // --- CASO 3: NORMAL ---
+        contenedorLiDias.style.display = 'flex'; 
+        mensajeContador.classList.remove('visible');
+    }
+
+    // Actualizamos los números mientras no sea menor a 0
+    elDias.innerText = dias < 10 ? '0' + dias : dias;
+    elHoras.innerText = horas < 10 ? '0' + horas : horas;
+    elMinutos.innerText = minutos < 10 ? '0' + minutos : minutos;
+    elSegundos.innerText = segundos < 10 ? '0' + segundos : segundos;
+
+}, 1000);

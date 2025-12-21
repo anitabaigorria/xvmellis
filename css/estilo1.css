@@ -5,10 +5,17 @@
     border: 0;
 }
 
-/* FUENTES */
 :root {
+    /* FUENTES */
     --fuente-principal: 'Montserrat', sans-serif;  /* Para textos largos y botones */
     --fuente-firma: 'Great Vibes', cursive;        /* Para los nombres "Mellis" */
+    
+    /* COLORES */
+    --color-principal-oscuro: #7f976e;
+    --color-principal-claro: #89a699;
+
+    --fondos-claro: #e5fff3a0;
+
 
 }
 
@@ -18,7 +25,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #e5fff3a0;
+    background-color: var(--fondos-claro);
 }
 
 @keyframes subirAparecer {
@@ -35,7 +42,7 @@
 #seccion-primera-pagina{
     text-align: center;
     font-family: var(--fuente-principal);
-    color: #89a699;
+    color: var(--color-principal-claro);
 
     opacity: 0; 
     /* Nombre | Duración | Curva | Mantener final */
@@ -55,7 +62,7 @@
 }
 
 #boton-ingresar {
-    background-color: #7f976e; 
+    background-color: var(--color-principal-oscuro); 
     color: #ffffff;            
     font-family: 'Montserrat', sans-serif; 
     font-weight: 600;          
@@ -115,7 +122,7 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #7f976e;
+    background-color: var(--color-principal-oscuro);
     color: white;
     border: none;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
@@ -165,6 +172,7 @@
 
 .info-tarjeta {
     padding: 20px;
+    margin-top: 1rem;
 }
 
 .info-tarjeta h2 {
@@ -178,14 +186,14 @@
 
 .info-tarjeta strong {
     font-weight: 700;
-    color: #7f976e; 
+    color: var(--color-principal-oscuro); 
 }
 
 /* Línea decorativa opcional */
 .separador-elegante {
     width: 50px;
     height: 2px;
-    background-color: #7f976e;
+    background-color: var(--color-principal-oscuro);
     margin: 15px auto;
 }
 
@@ -200,8 +208,104 @@
     }
     .info-tarjeta h2 {
         padding-top: 1.3rem;
-        font-size: 2rem;
+        font-size: 3rem;
+        padding-bottom: 1rem;
     }
 }
+
+/* cuenta regresiva */
+.contenedor-contador {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    
+    /* Reset de lista para quitar puntitos y sangría */
+    list-style: none;
+    padding: 0;
+}
+
+.caja-tiempo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 50px;
+}
+
+.numero-tiempo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--color-principal-oscuro);
+    line-height: 1;
+}
+
+.texto-tiempo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #888;
+    margin-top: 5px;
+}
+
+.mensaje-es-hoy {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-principal-oscuro);
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    
+    display: none; /* Empieza oculto */
+}
+
+.texto-latido {
+    display: inline-block; /* Necesario para que el texto se pueda agrandar */
+    color: #5a2f2f; 
+    
+    /* EXPLICACIÓN TÉCNICA:
+       - 0.8s: Duración de la ida.
+       - infinite: No para nunca.
+       - alternate: Al llegar al final, vuelve hacia atrás (ida y vuelta real).
+       - ease-in-out: Acelera y frena suavemente en las puntas.
+    */
+    animation: latido 0.5s infinite alternate ease-in-out;
+}
+
+
+@keyframes latido {
+    /* Estado inicial (Tamaño normal) */
+    from { 
+        transform: scale(1); 
+    }
+    /* Estado final (Agrandado) */
+    to { 
+        transform: scale(1.15); /* Aumentamos un poquito más para que se note */
+    }
+}
+
+/* Ajuste para que se vea bien cuando aparezca */
+.mensaje-es-hoy.visible {
+    display: block;
+}
+
+/* --- responsive pc --- */
+@media (min-width: 720px) {
+    .contenedor-contador {
+        gap: 50px;
+        margin-top: 35px;
+    }
+
+    .numero-tiempo {
+        font-size: 4rem;
+    }
+
+    .texto-tiempo {
+        font-size: 1.2rem;
+    }
+}
+
 
 /*{}*/
