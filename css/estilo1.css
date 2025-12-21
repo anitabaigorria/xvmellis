@@ -428,7 +428,7 @@
 
 .numero-calendario {
     position: absolute;
-    top: 55%; /* Bajamos un poquito para centrar visualmente */
+    top: 61%; /* Bajamos un poquito para centrar visualmente */
     left: 50%;
     transform: translate(-50%, -50%); /* Centrado matemático perfecto */
     
@@ -452,7 +452,6 @@
     100% { transform: rotate(0deg); }
 }
 
-
 /* --- BOTONES MAPA --- */
 .boton-mapa {
     text-decoration: none;
@@ -469,7 +468,6 @@
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
-
 
 /* --- responsive pc --- */
 @media (min-width: 720px) {
@@ -488,4 +486,110 @@
     }
 }
 
-/*{}*/
+/* carrousel */
+#galeria-fotos {
+    background-color: #ffffff; /* Fondo blanco continuo */
+    padding: 0 0 40px 0; /* Sin padding arriba para pegar con la sección anterior */
+    overflow: hidden;
+}
+
+.carrusel-marco-full {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* --- PISTA DESLIZABLE --- */
+.carrusel-track-auto {
+    display: flex;
+    gap: 0; /* Sin espacio entre fotos en celular (efecto continuo) */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /* Obliga a parar en cada foto */
+    scroll-behavior: smooth;
+    scrollbar-width: none; 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.carrusel-track-auto::-webkit-scrollbar { display: none; }
+
+
+/* --- ESTILO FOTO LIMPIA (MÓVIL) --- */
+.slide {
+    flex: 0 0 100%; /* 100% del ancho del celular (1 por 1) */
+    scroll-snap-align: center; /* Se frena en el centro */
+    position: relative;
+    padding-bottom: 20px; /* Espacio para la sombra de abajo */
+}
+
+.slide img {
+    width: 100%; 
+    height: 60vh; /* Altura vertical potente en celular */
+    object-fit: cover;
+    display: block;
+    
+    /* BORDE Y SOMBRA (Solo abajo) */
+    /* Borde muy sutil para separar fotos pegadas */
+    border-right: 1px solid rgba(255,255,255,0.5); 
+    
+    /* Sombra solo abajo para dar profundidad */
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); 
+}
+
+/* --- FLECHAS (Ocultas en celular) --- */
+.btn-flecha {
+    display: none; 
+}
+
+
+/* --- RESPONSIVE PC (Aquí no tocamos la estructura que te gustaba) --- */
+@media (min-width: 720px) {
+    #galeria-fotos {
+        padding: 60px 0;
+    }
+
+    .carrusel-track-auto {
+        justify-content: center;
+        gap: 30px; /* Recuperamos espacio entre fotos en PC */
+        padding: 20px 0; /* Espacio para sombras */
+    }
+
+    .slide-clean {
+        flex: 0 0 80%; /* Foto grande centrada */
+        border-radius: 10px; /* Borde redondeado en PC */
+    }
+
+    .slide-clean img {
+        height: 600px; /* Altura fija PC */
+        border-radius: 10px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.25); /* Sombra elegante completa en PC */
+        border: none; /* Sin borde de separación en PC */
+    }
+
+    /* FLECHAS VISIBLES EN PC */
+    .btn-flecha {
+        display: flex;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        background-color: rgba(255,255,255,0.9);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        color: var(--color-principal-oscuro);
+        cursor: pointer;
+        border: 1px solid #eee;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    .btn-flecha:hover { 
+        background-color: var(--color-principal-oscuro);
+        color: #fff;
+    }
+    .flecha-izq { left: 30px; }
+    .flecha-der { right: 30px; }
+}

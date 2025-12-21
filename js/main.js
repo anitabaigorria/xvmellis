@@ -104,3 +104,69 @@ const actualizarContador = setInterval(() => {
     elSegundos.innerText = segundos < 10 ? '0' + segundos : segundos;
 
 }, 1000);
+
+
+// --- LÓGICA DEL CARRUSEL ---
+
+const trackAuto = document.getElementById('track-fotos-auto');
+const btnIzquierdaAuto = document.querySelector('.flecha-izq');
+const btnDerechaAuto = document.querySelector('.flecha-der');
+
+// Configuración
+const autoPlaySpeed = 3000; // 3 segundos por foto
+let autoPlayInterval;
+
+// Función de movimiento (Siempre hacia adelante)
+function moverCarruselAdelante() {
+    const anchoSlide = trackAuto.clientWidth; // Ancho visible
+    const posicionActual = trackAuto.scrollLeft;
+    const anchoTotal = trackAuto.scrollWidth;
+
+    // Si estamos en la última foto (o cerca del final)
+    if (posicionActual + anchoSlide >= anchoTotal - 10) {
+        // EFECTO CILINDRO: Volver al principio
+        trackAuto.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+        // Avanzar una foto normal
+        trackAuto.scrollBy({ left: anchoSlide, behavior: 'smooth' });
+    }
+}
+
+// Iniciar Auto-Play
+function startAutoPlay() {
+    stopAutoPlay(); // Limpiamos por seguridad
+    autoPlayInterval = setInterval(moverCarruselAdelante, autoPlaySpeed);
+}
+
+// Detener Auto-Play
+function stopAutoPlay() {
+    clearInterval(autoPlayInterval);
+}
+
+// --- EVENTOS ---
+
+// Iniciar al cargar
+startAutoPlay();
+
+// Pausar si el usuario toca (para ver la foto tranquilo)
+trackAuto.addEventListener('touchstart', stopAutoPlay, { passive: true });
+trackAuto.addEventListener('mouseenter', stopAutoPlay);
+
+// Reanudar al soltar
+trackAuto.addEventListener('touchend', startAutoPlay);
+trackAuto.addEventListener('mouseleave', startAutoPlay);
+
+
+// --- FLECHAS PC ---
+btnDerechaAuto.addEventListener('click', () => {
+    stopAutoPlay();
+    moverCarruselAdelante(); // Usamos la misma lógica
+    setTimeout(startAutoPlay, 5000); // Reanudar después de 5s
+});
+
+btnIzquierdaAuto.addEventListener('click', () => {
+    stopAutoPlay();
+    // Para atrás es simple
+    trackAuto.scrollBy({ left: -trackAuto.clientWidth, behavior: 'smooth' });
+    setTimeout(startAutoPlay, 5000);
+});
