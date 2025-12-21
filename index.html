@@ -118,7 +118,7 @@
                 
                 <section class="detalles-evento fechayhora">
                     <p>20 DE MARZO</p>
-                    <p>| 21:00 HS |</p>
+                    <p>| 22:00 HS |</p>
                 </section>
             </article>
 
@@ -191,6 +191,85 @@
             </article>
      </section>
 
+     <!----- secciones alternadas dresscode, link drive fotos, formulario de confirmación  ----->
+     <section class="contenedor-info-vertical">
+
+            <article class="bloque-info estilo-oscuro">
+                <div class="icono-animado-container">
+                    <i class="fas fa-user-tie icono-swing color-blanco"></i>
+                </div>
+                <h3>DRESS CODE</h3>
+                <section class="separador-elegante"></section>
+                <p class="nota-dresscode">EL COLOR <strong>BLANCO</strong> SE RESERVA PARA LAS QUINCEAÑERAS</p>
+            </article>
+
+            <article class="bloque-info estilo-claro">
+                <div class="icono-animado-container">
+                    <i class="fas fa-camera icono-flash color-verde"></i>
+                </div>
+                <h3>MOMENTOS</h3>
+                <p class="texto-detalle">¡Ayudanos a capturar cada instante! Subí tus fotos al álbum compartido.</p>
+                
+                <a href="https://drive.google.com/drive/folders/1b308Al-65Ovrde71vYMNq3J18UKBQK5A?usp=sharing" target="_blank" class="boton-mapa btn-oscuro">
+                    SUBIR FOTOS
+                </a>
+            </article>
+
+            <article class="bloque-info estilo-oscuro">
+                <div class="icono-animado-container">
+                    <i class="fas fa-envelope-open-text icono-bouncing color-blanco"></i>
+                </div>
+                
+                <h3>CONFIRMACIÓN</h3>
+                <p class="texto-detalle">Por favor, confirmanos tu asistencia antes del 10 de Marzo.</p>
+
+                <form action="https://formsubmit.co/martubaigorria20@gmail.com" method="POST" class="formulario-rsvp">
+                    
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="¡Nueva confirmación de asistencia!">
+                    <input type="hidden" name="_template" value="table">
+                    <div class="campo-form">
+                        <label for="nombre">Nombre y Apellido</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
+                    </div>
+
+                    <div class="campo-form">
+                        <label for="asistencia">¿Podrás asistir?</label>
+                        <select id="asistencia" name="asistencia" required>
+                            <option value="" disabled selected>Seleccioná una opción</option>
+                            <option value="Si, confirmo">¡Sí, ahí estaré!</option>
+                            <option value="No podre ir">No podré asistir :(</option>
+                        </select>
+                    </div>
+
+                    <div class="campo-form">
+                        <label for="mensaje">Mensaje / Restricción Alimentaria</label>
+                        <textarea id="mensaje" name="mensaje" rows="3" placeholder="Soy vegetariano / Celiaquía / Saludos..."></textarea>
+                    </div>
+
+                    <button type="submit" class="boton-mapa btn-blanco enviar-btn">
+                        ENVIAR CONFIRMACIÓN
+                    </button>
+
+                </form>
+
+            </article>
+     </section>
+
+     <!----- algo con imagenes  ----->
+     <section class="">
+
+     </section>
+
+     <!----- seccion "te esperamos"  ----->
+     <section class="">
+         
+     </section>
+    
+     <!----- franja de color final  ----->
+     <footer>
+
+     </footer>
 
     </main>
 
