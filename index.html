@@ -49,7 +49,7 @@
         <section class="tarjeta-portada">
         
          <figure class="marco-foto">
-                <img src="img/sesion10.jpg" alt="Mis XV" class="foto-tarjeta">
+                <img src="img/sesion10.jpg" alt="Foto de sesión de las Mellis en exteriores" class="foto-tarjeta">
          </figure>
 
          <article class="info-tarjeta">
@@ -58,7 +58,7 @@
 
                 <section id="cuenta-regresiva" aria-label="Tiempo restante para el evento">
         
-                    <h2 style='color: var(--color-principal-oscuro); font-weight:bold; text-align:center;' id="mensaje-contador" class="mensaje-es-hoy"></h2>
+                    <h2 id="mensaje-contador" class="mensaje-es-hoy"></h2>
 
                     <ul class="contenedor-contador">
                         
@@ -87,10 +87,44 @@
           </article>
         </section>
 
-        <section class="">
+        <!----- secciones alternadas lugar, fecha y hora ----->
+        <section id="info-evento" class="contenedor-info">
+
+            <article class="bloque-info estilo-oscuro">
+                <section class="icono-animado-container">
+                    <i class="fas fa-map-marker-alt icono-bouncing color-blanco"></i> 
+                </section>
+                <h3>¿DÓNDE?</h3>
+                
+                <section class="detalles-evento">
+                    <p class="nombre-lugar">Salón "Canzonieri Park"</p>
+                    <address>Av. Aconquija 1500, Tucumán</address>
+                </section>
+
+                <a href="https://maps.app.goo.gl/HxoAVPQAm2e16J82A" target="_blank" class="boton-mapa btn-blanco">
+                    VER EN EL MAPA
+                </a>
+            </article>
+
+            
+            <article class="bloque-info estilo-claro">
+                <section class="icono-animado-container">
+                    <article class="calendario-stack icono-swing">
+                        <i class="far fa-calendar color-verde"></i>
+                        <span class="numero-calendario">20</span>
+                    </article>
+                </section>
+                <h3>¿CÚANDO?</h3>
+                
+                <section class="detalles-evento fechayhora">
+                    <p>20 DE MARZO</p>
+                    <p>| 21:00 HS |</p>
+                </section>
+            </article>
 
         </section>
-        
+
+
     </main>
 
     <script src="js/main.js"></script>

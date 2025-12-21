@@ -15,7 +15,7 @@
     --color-principal-claro: #89a699;
 
     --fondos-claro: #e5fff3a0;
-
+    --color-alternativo: #5a2f2f;
 
 }
 
@@ -153,6 +153,8 @@
     margin: 20px auto;         /* Centrar en la pantalla */
     text-align: center;
     overflow: hidden;       /* Para que nada se salga de los bordes */
+    /* OPCIONAL: VER Eje-X | Eje-Y | Difuminado | Color con 30% de opacidad 
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);*/
 }
 
 .marco-foto {
@@ -189,7 +191,6 @@
     color: var(--color-principal-oscuro); 
 }
 
-/* Línea decorativa opcional */
 .separador-elegante {
     width: 50px;
     height: 2px;
@@ -263,7 +264,7 @@
 
 .texto-latido {
     display: inline-block; /* Necesario para que el texto se pueda agrandar */
-    color: #5a2f2f; 
+    color: var(--color-alternativo); 
     
     /* EXPLICACIÓN TÉCNICA:
        - 0.8s: Duración de la ida.
@@ -286,7 +287,6 @@
     }
 }
 
-/* Ajuste para que se vea bien cuando aparezca */
 .mensaje-es-hoy.visible {
     display: block;
 }
@@ -305,7 +305,187 @@
     .texto-tiempo {
         font-size: 1.2rem;
     }
+
+    .info-tarjeta {
+        margin-top: 4rem;
+    }
 }
 
+/* secciones alternadas lugar (oscuro), fecha y hora (claro) */
+.contenedor-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* En celular, uno abajo del otro */
+}
+
+/* Estilos generales de cada bloque */
+.bloque-info {
+    padding: 60px 20px;
+    text-align: center;
+    font-family: var(--fuente-principal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 9px; /* Espacio entre icono, titulo, texto y boton */
+    /* Eje-X | Eje-Y | Difuminado | Color con 30% de opacidad */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.estilo-oscuro{
+    background-color: var(--color-principal-oscuro);
+    color: #fff;
+}
+
+.estilo-claro{
+    background-color: #fff;
+    color: var(--color-principal-oscuro);
+}
+
+.icono-animado-container {
+    height: 80px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Colores específicos */
+.color-blanco {
+    color: #ffffff; /* Ubicación en blanco */
+    font-size: 3.5rem; /* Tamaño grande */
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1)); /* Sombra suave */
+}
+
+.color-verde {
+    color: var(--color-principal-oscuro); /* Tu verde exacto */
+    font-size: 4rem; /* Un poco más grande para que entre el número */
+}
+
+.bloque-info h3 {
+    font-weight: 700;
+    letter-spacing: 2.6px;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.detalles-evento {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.nombre-lugar {
+    font-size: 2.2rem;
+    font-family: var(--fuente-firma); /* Usamos la fuente cursiva para el nombre del lugar */
+    margin: 10px;
+}
+
+.fechayhora {
+    font-family: var(--fuente-principal);
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 2.6px;
+    margin-bottom: 5px;
+}
+
+.detalles-evento address {
+    font-style: normal; /* Quitamos la cursiva por defecto de address */
+    font-family: var(--fuente-principal);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2.6px;
+}
+
+/* Botón oscuro (para usar en fondo claro) */
+.btn-oscuro {
+    background-color: var(--color-principal-oscuro);
+    color: #ffffff;
+}
+
+/* Botón blanco (para usar en fondo oscuro) */
+.btn-blanco {
+    background-color: #ffffff;
+    color: var(--color-principal-oscuro);
+}
+
+/* --- ANIMACIÓN 1: BOUNCING (Para la ubicación) --- */
+.icono-bouncing {
+    animation: rebote 1.4s infinite ease-in-out;
+}
+
+@keyframes rebote {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); } /* Sube 15px y baja */
+}
+
+/* --- TRUCO DEL CALENDARIO CON EL 20 --- */
+.calendario-stack {
+    position: relative; /* Para que el número se posicione respecto a esto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.numero-calendario {
+    position: absolute;
+    top: 55%; /* Bajamos un poquito para centrar visualmente */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrado matemático perfecto */
+    
+    font-family: var(--fuente-principal);
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--color-principal-oscuro); /* El 20 del mismo color */
+    letter-spacing: -1px;
+}
+
+/* --- ANIMACIÓN 2: SWING (Para el calendario) --- */
+.icono-swing {
+    transform-origin: top center; /* Se cuelga de arriba como un cuadro */
+    animation: balanceo 3s infinite ease-in-out;
+}
+
+@keyframes balanceo {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }  /* Se inclina un poquito */
+    75% { transform: rotate(-5deg); } /* Se inclina al otro lado */
+    100% { transform: rotate(0deg); }
+}
+
+
+/* --- BOTONES MAPA --- */
+.boton-mapa {
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+}
+
+.boton-mapa:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+
+/* --- responsive pc --- */
+@media (min-width: 720px) {
+    .contenedor-info {
+        flex-direction: row; /* En PC, uno al lado del otro */
+        margin-top: 5rem;
+    }
+    
+    .bloque-info {
+        width: 50%; /* Cada uno ocupa la mitad */
+        padding: 80px 40px;
+    }
+
+    .nombre-lugar {
+        font-size: 2.5rem;
+    }
+}
 
 /*{}*/
