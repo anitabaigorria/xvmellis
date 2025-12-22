@@ -224,7 +224,7 @@
                 <p class="texto-detalle">Por favor, confirmanos tu asistencia antes del 10 de Marzo.</p>
 
                 <form id="form-rsvp" class="formulario-rsvp">
-                    
+    
                     <div class="campo-form">
                         <label for="nombre">Nombre y Apellido</label>
                         <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
@@ -244,13 +244,13 @@
                         <textarea id="mensaje" name="mensaje" rows="3" placeholder="Soy vegetariano / Celiaquía / Saludos..."></textarea>
                     </div>
 
-                    <button type="submit" class="boton-mapa btn-blanco enviar-btn">
+                    <button type="submit" id="btn-enviar" class="boton-mapa btn-blanco enviar-btn">
                         ENVIAR CONFIRMACIÓN
                     </button>
-
-                    <p id="mensaje-exito" style="display:none; color:white; text-align:center; margin-top:10px; font-weight:bold;">
-                        ¡Gracias! Tu confirmación se guardó.
-                   </p>
+                    
+                    <p id="mensaje-exito" style="display:none; text-align:center; margin-top:15px; color:#fff; font-weight:bold;">
+                        ¡Gracias! Tu confirmación se ha enviado correctamente.
+                    </p>
 
                 </form>
 
