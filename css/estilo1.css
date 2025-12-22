@@ -45,7 +45,7 @@
 #seccion-primera-pagina{
     text-align: center;
     font-family: var(--fuente-principal);
-    color: var(--color-principal-claro);
+    color: var(--color-principal-oscuro);
     opacity: 0; 
     /* Nombre | Duración | Curva | Mantener final */
     animation: subirAparecer 1s ease-out forwards;
@@ -72,13 +72,16 @@
     letter-spacing: 1px;       
     text-decoration: none;
     border-radius: 50px;
+    font-size: 1em;
 
-    padding: 0.7em;
-    margin-top: 0.7em;
+    padding: 0.8em;
+    padding-left: 3em;
+    padding-right: 3em;
+    margin-top: 1em;
 
     display: inline-block; 
     cursor: pointer;           /* Manito al pasar el mouse */
-    box-shadow: 0 4px 15px rgba(32, 108, 148, 0.4);
+    box-shadow: 0 4px 15px rgba(127, 151, 110, 0.4);
     transition: all 0.3s ease;
 }
 
@@ -121,14 +124,14 @@
 }
 
 .estilo-boton-float {
-    width: 50px;
-    height: 50px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
     background-color: var(--color-principal-oscuro);
     color: white;
     border: none;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    font-size: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important;
+    font-size: 28px;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -651,11 +654,27 @@
     80% { transform: rotate(-5deg); }
     100% { transform: rotate(0deg); }
 }
-/* (La animación 'rebote' para el mail ya la tenías definida antes, así que se reutiliza sola) */
 
 
-/* --- ESTILOS DEL FORMULARIO INTEGRADO --- */
+/* --- RESPONSIVE PC (Ajustes de espacio) --- */
+@media (min-width: 1000px) {
+    .contenedor-info-vertical .bloque-info {
+        padding: 100px 0; /* Más aire arriba y abajo en PC */
+    }
+    
+    .contenedor-info-vertical{
+        /* Eje-X | Eje-Y | Difuminado | Color con 30% de opacidad */
+        box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.3);
+    }
 
+    .texto-detalle {
+        font-size: 1.2rem;
+    }
+}
+
+
+
+/* ------------------------------ formulario de confirmación ------------------------------ */
 .formulario-rsvp {
     width: 100%;
     max-width: 500px; /* Ancho máximo elegante */
@@ -719,39 +738,16 @@
     padding: 15px;
 }
 
-/* --- RESPONSIVE PC (Ajustes de espacio) --- */
-@media (min-width: 1024px) {
-    .contenedor-info-vertical .bloque-info {
-        padding: 100px 0; /* Más aire arriba y abajo en PC */
-    }
-    
-    .texto-detalle {
-        font-size: 1.2rem;
-    }
+
+
+
+/* ------------------------------ ultima imagen ------------------------------ */
+.seccion-imagen img {
+    width: 100%; 
+    height: 60vh; 
+    object-fit: cover;
+    display: block;
 }
-
-
-
-
-
-@media (min-width: 1000px){
-    .contenedor-info-vertical{
-        /* Eje-X | Eje-Y | Difuminado | Color con 30% de opacidad */
-        box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.3);
-    }
-}
-
-
-
-/* ------------------------------ formulario de confirmación ------------------------------ */
-
-
-
-
-
-/* ------------------------------ algo con imagenes ------------------------------ */
-
-
 
 
 
@@ -766,13 +762,14 @@
     font-family: var(--fuente-principal);
     font-size: 2rem;
     letter-spacing: 5px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     color: var(--color-principal-oscuro);
-    font-weight: 300;
+    font-weight: 500;
 }
 
 /* --- ANIMACIÓN DE LATIDO REAL --- */
-/* Esta clase define el tamaño y aplica la animación */
+
+/*- Esta clase define el tamaño y aplica la animación */
 .icono-latido {
     font-size: 4rem; /* Tamaño grande pero elegante */
     display: inline-block;
@@ -780,7 +777,7 @@
     animation: latidoReal 1.3s ease-in-out infinite;
 }
 
-/* Definición de los "keyframes" para el ritmo tup-tup... */
+/*- Definición de los "keyframes"*/
 @keyframes latidoReal {
     0% { transform: scale(1); }
     14% { transform: scale(1.15); } /* Primer latido fuerte */
@@ -795,10 +792,11 @@
 
 /* ------------------------------ franja de color final ------------------------------ */
 .footer-simple {
-    background-color: var(--color-principal-oscuro); /* Tu verde #7f976e */
-    height: 60px; /* Altura fija para la franja */
+    background-color: var(--color-principal-oscuro);
+    height: 60px; /* Altura de la franja */
     width: 100%;
-    /* Si decides poner texto, esto lo centra: */
+
+    /* Atributos texto */
     display: flex;
     justify-content: center;
     align-items: center;
