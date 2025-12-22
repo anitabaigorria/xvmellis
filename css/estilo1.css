@@ -608,12 +608,12 @@
 .separador-elegante{
     width: 120px;
     background-color: #ffffff;
-    margin: 0 auto 25px; /* Centrada y con espacio abajo */
+    margin: 0 auto 20px; /* Centrada y con espacio abajo */
 }
 
 .texto-detalle {
     font-size: 1.1rem;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
     font-weight: 400;
     max-width: 600px; /* Límite para que no sea una línea eterna en PC */
     line-height: 1.5;
@@ -621,7 +621,7 @@
 
 .nota-dresscode{
     font-family: var(--fuente-principal);
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     line-height: 1.8; /* Buen espacio entre líneas */
     text-transform: uppercase; /* Todo en mayúsculas */
     letter-spacing: 1px;
@@ -756,9 +756,54 @@
 
 
 /* ------------------------------ seccion "te esperamos" ------------------------------ */
+.cierre-pagina {
+    text-align: center;
+    /* Un buen espacio abajo antes de la franja del footer */
+    padding: 60px 20px 100px 20px !important;
+}
 
+.titulo-final {
+    font-family: var(--fuente-principal);
+    font-size: 2rem;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+    color: var(--color-principal-oscuro);
+    font-weight: 300;
+}
+
+/* --- ANIMACIÓN DE LATIDO REAL --- */
+/* Esta clase define el tamaño y aplica la animación */
+.icono-latido {
+    font-size: 4rem; /* Tamaño grande pero elegante */
+    display: inline-block;
+    /* La magia: duración 1.3s con ritmo "ease-in-out" infinito */
+    animation: latidoReal 1.3s ease-in-out infinite;
+}
+
+/* Definición de los "keyframes" para el ritmo tup-tup... */
+@keyframes latidoReal {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.15); } /* Primer latido fuerte */
+    28% { transform: scale(1); }    /* Relajación rápida */
+    42% { transform: scale(1.15); } /* Segundo latido fuerte */
+    70% { transform: scale(1); }    /* Relajación y pausa... */
+    100% { transform: scale(1); }   /* ...hasta que empieza de nuevo */
+}
 
 
 
 
 /* ------------------------------ franja de color final ------------------------------ */
+.footer-simple {
+    background-color: var(--color-principal-oscuro); /* Tu verde #7f976e */
+    height: 60px; /* Altura fija para la franja */
+    width: 100%;
+    /* Si decides poner texto, esto lo centra: */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-family: var(--fuente-principal);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
