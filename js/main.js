@@ -170,3 +170,37 @@ btnIzquierdaAuto.addEventListener('click', () => {
     trackAuto.scrollBy({ left: -trackAuto.clientWidth, behavior: 'smooth' });
     setTimeout(startAutoPlay, 5000);
 });
+
+
+// --- ENVÍO DE FORMULARIO A GOOGLE SHEETS ---
+
+const scriptURL = 'https://script.google.com/macros/s/AKfycbw2kJOGkuHyTthY05LvsbM52vRUqf869qz4WKnqma0Ay8r9gIi8pHJcAjQh-BbXQ898/exec';
+
+const form = document.getElementById('form-rsvp');
+const btnEnviar = document.getElementById('btn-enviar');
+const msgExito = document.getElementById('mensaje-exito');
+
+form.addEventListener('submit', e => {
+    e.preventDefault(); // Evita que la página se recargue
+    
+    // Deshabilitar botón para que no apreten doble
+    btnEnviar.disabled = true;
+    btnEnviar.innerText = "Enviando...";
+
+    // Enviar datos
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            // ¡Éxito!
+            msgExito.style.display = "block"; // Mostrar mensaje gracias
+            btnEnviar.style.display = "none"; // Ocultar botón
+            form.reset(); // Limpiar campos
+            
+            // Opcional: Volver a mostrar botón después de unos segundos
+            // setTimeout(() => { msgExito.style.display="none"; btnEnviar.style.display="block"; btnEnviar.disabled=false; btnEnviar.innerText="ENVIAR CONFIRMACIÓN"; }, 5000);
+        })
+        .catch(error => {
+            console.error('Error!', error.message);
+            btnEnviar.innerText = "Error, intenta de nuevo";
+            btnEnviar.disabled = false;
+        });
+});

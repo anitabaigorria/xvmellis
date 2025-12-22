@@ -223,11 +223,8 @@
                 <h3>CONFIRMACIÓN</h3>
                 <p class="texto-detalle">Por favor, confirmanos tu asistencia antes del 10 de Marzo.</p>
 
-                <form action="https://formspree.io/f/xojalojg" method="POST" class="formulario-rsvp">
+                <form class="formulario-rsvp">
                     
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_subject" value="¡Nueva confirmación de asistencia!">
-                    <input type="hidden" name="_template" value="table">
                     <div class="campo-form">
                         <label for="nombre">Nombre y Apellido</label>
                         <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
@@ -250,6 +247,10 @@
                     <button type="submit" class="boton-mapa btn-blanco enviar-btn">
                         ENVIAR CONFIRMACIÓN
                     </button>
+
+                    <p id="mensaje-exito" style="display:none; color:white; text-align:center; margin-top:10px; font-weight:bold;">
+                        ¡Gracias! Tu confirmación se guardó.
+                   </p>
 
                 </form>
 
