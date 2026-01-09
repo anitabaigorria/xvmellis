@@ -438,3 +438,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+
+// --- CODIGO PARA EL PROYECTO DEL MODELO (EJ: MELLIS) ---
+
+// Escuchar mensajes de la Landing Page
+window.addEventListener('message', function(event) {
+    // Verificamos que sea un mensaje de cambio de plan
+    if (event.data && event.data.tipo === 'cambioPlan') {
+        const planElegido = event.data.plan;
+        
+        console.log("Recibido cambio de plan a:", planElegido);
+        
+        // Aquí ejecutas TU lógica existente de mostrar/ocultar
+        // Asumiendo que usas el atributo data-plan en el body o main
+        const contenedor = document.getElementById('pantalla-demo') || document.body;
+        contenedor.setAttribute('data-plan', planElegido); // O data-plan-actual
+    }
+});
